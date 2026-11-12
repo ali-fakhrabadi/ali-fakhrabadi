@@ -1,6 +1,6 @@
 # Ali Fakhrabadi
 
-Senior Python backend, AI automation and DevOps engineer. 10+ years across software
+Senior Python backend, AI automation and DevOps engineer. 15+ years across software
 engineering, Linux operations and network security (M.Sc. in IT; LPIC-2, CCNP, CEH,
 Security+).
 
