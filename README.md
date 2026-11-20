@@ -9,9 +9,12 @@ infrastructure code that keeps them running in production.
 
 ## Portfolio
 
+Every number below was measured, and each README links to the result files.
+
+### Platform and operations
+
 Three projects that work together: an audit service, the stack that monitors it, and an
-engine that triages the alerts. Every number below was measured, and each README links to
-the result files.
+engine that triages the alerts.
 
 | Project | What it is | Measured |
 |---|---|---|
@@ -26,6 +29,16 @@ flowchart LR
     a -->|"signed webhook"| n["n8n"] --> t["Telegram"]
 ```
 
+### AI applications
+
+Self-hosted LLM applications for business data, each with an evaluation dataset and a
+benchmark report.
+
+| Project | What it is | Measured |
+|---|---|---|
+| [rag-support-chatbot](https://github.com/ali-fakhrabadi/rag-support-chatbot) | Secure RAG assistant: cited answers from private documents, workspace isolation with PostgreSQL row-level security; FastAPI, pgvector, Ollama, React | 135 test questions: 100 % retrieval recall@5, 26 of 26 correct "no answer" cases, 0 cross-workspace citations, 7 of 7 injection tests passed |
+| [ai-lead-qualification-crm-automation](https://github.com/ali-fakhrabadi/ai-lead-qualification-crm-automation) | Lead intake, AI qualification under deterministic rules, CRM sync and human-approved follow-ups; FastAPI, self-hosted n8n, Ollama, React | 128 scenarios: 0 duplicate CRM contacts, 22 of 22 repeat submissions caught, 0 messages sent without approval; one injection gap found by the benchmark, fixed and re-tested |
+
 ## How I work
 
 * Tests, strict typing and CI on everything, including alert rules, Ansible roles and
@@ -37,7 +50,8 @@ flowchart LR
 
 ## Stack
 
-**Backend:** Python, Django, DRF, FastAPI, PostgreSQL, Redis, Celery
-**AI and automation:** n8n (self-hosted), Ollama, OpenAI API, LLM agents
+**Backend:** Python, Django, DRF, FastAPI, PostgreSQL, pgvector, Redis, Celery
+**AI and automation:** n8n (self-hosted), Ollama, OpenAI API, RAG, LLM agents
+**Frontend:** React, TypeScript
 **DevOps:** Docker, Kubernetes, Helm, Terraform, Ansible, GitHub Actions
 **Observability:** Prometheus, Grafana, Loki, Alertmanager
